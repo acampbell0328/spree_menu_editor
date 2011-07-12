@@ -1,0 +1,1 @@
+MenuRootNode.create(:name => 'Main Menu', :position => 0)

@@ -1,0 +1,32 @@
+<% form_for([:admin, @menu_item]) do |f| %>
+  <% if @menu_item.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@menu_item.errors.count, "error") %> prohibited this menu_item from being saved:</h2>
+
+      <ul>
+      <% @menu_item.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <%# if @menu_item.parent.nil? && params[:parent_id] %>
+    <%#= f.hidden_field :parent_id, :value => params[:parent_id] %>
+  <%# elsif !@menu_item.parent.nil? %>
+    <p><strong>Parent</strong>: <%#= @menu_item.parent.label %></p>
+  <%# end %>
+
+  <p>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </p>
+
+  <p>
+    <%= f.label :page_id, 'Page' %>
+    <%= f.label :url, 'Path' %> <%= f.text_field :url %>
+  </p>
+
+  <p>
+    <%= f.submit "Save" %>
+  </p>
+<% end %>

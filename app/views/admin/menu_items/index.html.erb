@@ -1,0 +1,26 @@
+<h1>Listing menu_items</h1>
+
+<table>
+  <tr>
+    <th>SKU</th>
+    <th>Name</th>
+    <th></th>
+  </tr>
+
+<% @menu_items.each do |menu_item| %>
+  <tr>
+    <% #debugger %>
+    <td><%= menu_item.url %></td>
+    <td><%= menu_item.name %></td>
+    <td>
+      <%= link_to 'Show', admin_menu_item_path(menu_item) %> -
+      <%= link_to 'Edit', edit_admin_menu_item_path(menu_item) %> - 
+      <%= link_to 'Destroy', admin_menu_item_path(menu_item), :confirm => 'Are you sure?', :method => :delete %>
+    </td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Menu item', new_admin_menu_item_path %>

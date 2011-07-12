@@ -19,4 +19,5 @@ Gem::Specification.new do |s|
   s.has_rdoc = true
 
   s.add_dependency('spree_core', '>= 0.50.2')
+  s.add_dependency('nested_set')
 end

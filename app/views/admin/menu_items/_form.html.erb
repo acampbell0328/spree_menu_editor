@@ -13,7 +13,8 @@
   <%# if @menu_item.parent.nil? && params[:parent_id] %>
     <%#= f.hidden_field :parent_id, :value => params[:parent_id] %>
   <%# elsif !@menu_item.parent.nil? %>
-    <p><strong>Parent</strong>: <%#= @menu_item.parent.label %></p>
+    <p><strong>Parent</strong>: <%#= @menu_item.parent.label %>
+    <%=  f.collection_select(:parent_id, MenuItem.all, :id, :name, {:include_blank => 'None'}) %>  </p>
   <%# end %>
 
   <p>
@@ -23,7 +24,7 @@
 
   <p>
     <%= f.label :page_id, 'Page' %>
-    <%= f.label :url, 'Path' %> <%= f.text_field :url %>
+    <%= f.label :url, 'SKU' %> <%= f.text_field :url %>
   </p>
 
   <p>

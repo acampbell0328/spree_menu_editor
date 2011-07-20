@@ -44,7 +44,7 @@ class Admin::MenuItemsController < Admin::BaseController
 
     respond_to do |format|
       if @menu_item.save
-        format.html { redirect_to(@menu_item, :notice => 'Menu item was successfully created.') }
+        format.html { redirect_to(edit_admin_menu_item_path(@menu_item), :notice => 'Menu item was successfully created.') }
         format.xml  { render :xml => @menu_item, :status => :created, :location => @menu_item }
       else
         format.html { render :action => "new" }
@@ -76,7 +76,7 @@ class Admin::MenuItemsController < Admin::BaseController
     @menu_item.destroy
 
     respond_to do |format|
-      format.html { redirect_to(menu_items_url) }
+      format.html { redirect_to(admin_menu_items_url) }
       format.xml  { head :ok }
     end
   end

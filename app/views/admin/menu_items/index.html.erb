@@ -1,10 +1,10 @@
-<h1>Listing menu_items</h1>
+ <h1>Listing menu_items</h1>
 
 <table>
-  <tr>
+  <tr data-hook="admin_menu_items_index_headers">
     <th>SKU</th>
     <th>Name</th>
-    <th></th>
+    <th data-hook="admin_menu_items_index_header_actions"></th>
   </tr>
 
 <% @menu_items.each do |menu_item| %>
@@ -13,8 +13,7 @@
     <td><%= menu_item.url %></td>
     <td><%= menu_item.name %></td>
     <td>
-      <%= link_to 'Show', admin_menu_item_path(menu_item) %> -
-      <%= link_to 'Edit', edit_admin_menu_item_path(menu_item) %> - 
+      <%= link_to 'Edit', edit_admin_menu_item_path(menu_item), :class => 'edit' %> -
       <%= link_to 'Destroy', admin_menu_item_path(menu_item), :confirm => 'Are you sure?', :method => :delete %>
     </td>
   </tr>
